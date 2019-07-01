@@ -1,18 +1,31 @@
 package com.github.pacey.launchpal.di
 
-import android.content.Context
-import com.github.pacey.launchpal.MainActivity
+import android.app.Application
+import com.github.pacey.launchpal.LaunchPalApplication
 import com.github.pacey.launchpal.di.modules.ApplicationModule
 import com.github.pacey.launchpal.di.modules.LaunchModule
+import com.github.pacey.launchpal.di.modules.MainActivityModule
+import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [ApplicationModule::class, LaunchModule::class])
+@Component(
+    modules = [
+        AndroidInjectionModule::class,
+        ApplicationModule::class,
+        MainActivityModule::class,
+        LaunchModule::class]
+)
 interface ApplicationComponent {
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
 
-    @AppContext
-    fun appContext(): Context
+        fun build(): ApplicationComponent
+    }
 
-    fun inject(mainActivity: MainActivity)
+    fun inject(launchPalApplication: LaunchPalApplication)
 }

@@ -1,11 +1,9 @@
 package com.github.pacey.launchpal.di.modules
 
-import android.content.Context
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
-import com.github.pacey.launchpal.di.AppContext
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -13,21 +11,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 import javax.inject.Singleton
 
-@Module
-class ApplicationModule(private val context: Context) {
-
-    @Singleton
-    @Provides
-    @AppContext
-    internal fun provideAppContext(): Context {
-        return context.applicationContext
-    }
-
-    @Provides
-    @Singleton
-    internal fun providesContext(): Context {
-        return context
-    }
+@Module(includes = [ViewModelModule::class])
+class ApplicationModule {
 
     @Provides
     @Singleton
@@ -47,7 +32,10 @@ class ApplicationModule(private val context: Context) {
 
     @Provides
     @Singleton
-    internal fun providesRetrofit(okHttpClient: OkHttpClient, objectMapper: ObjectMapper): Retrofit {
+    internal fun providesRetrofit(
+        okHttpClient: OkHttpClient,
+        objectMapper: ObjectMapper
+    ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
             .addConverterFactory(JacksonConverterFactory.create(objectMapper))

@@ -1,31 +1,25 @@
 package com.github.pacey.launchpal
 
+import android.app.Activity
 import android.app.Application
 import com.facebook.stetho.Stetho
-import com.github.pacey.launchpal.di.ApplicationComponent
-import com.github.pacey.launchpal.di.DaggerApplicationComponent
-import com.github.pacey.launchpal.di.modules.ApplicationModule
-import com.github.pacey.launchpal.di.modules.LaunchModule
+import com.github.pacey.launchpal.di.ApplicationInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
+import javax.inject.Inject
 
 
-class LaunchPalApplication : Application() {
-    lateinit var component: ApplicationComponent
-    private lateinit var application: LaunchPalApplication
+class LaunchPalApplication : Application(), HasActivityInjector {
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
-        this.application = this
-
-        initialiseDagger()
+        ApplicationInjector.init(this)
         initialiseStetho()
     }
 
-    private fun initialiseDagger() {
-        this.component = DaggerApplicationComponent.builder()
-            .applicationModule(ApplicationModule(applicationContext))
-            .launchModule(LaunchModule())
-            .build()
-    }
+    override fun activityInjector() = dispatchingAndroidInjector
 
     private fun initialiseStetho() {
         Stetho.initializeWithDefaults(this)

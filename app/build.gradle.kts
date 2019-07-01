@@ -24,6 +24,10 @@ android {
     }
 }
 
+androidExtensions {
+    isExperimental = true
+}
+
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Dependencies.kotlin_stdlib)
@@ -31,17 +35,25 @@ dependencies {
     implementation(Dependencies.core_ktx)
     implementation(Dependencies.constraintlayout)
     implementation(Dependencies.dagger)
+    implementation(Dependencies.dagger_android)
+    implementation(Dependencies.dagger_support)
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofit_jackson)
     implementation(Dependencies.okhttp)
     implementation(Dependencies.stetho)
     implementation(Dependencies.stetho_okhttp)
     implementation(Dependencies.jackson_module_kotlin)
+    implementation(Dependencies.androidx_lifecycle_extenstions)
+    implementation(Dependencies.androidx_recyclerview)
+    implementation(Dependencies.material_design)
 
     kapt(Dependencies.dagger_compiler)
+    kapt(Dependencies.dagger_support_compiler)
+    kapt(Dependencies.androidx_lifecycle_compiler)
 
     testImplementation(Dependencies.junit)
 
+    androidTestImplementation(Dependencies.androidx_core_testing)
     androidTestImplementation(Dependencies.androidx_test_runner)
     androidTestImplementation(Dependencies.androidx_test_junit)
     androidTestImplementation(Dependencies.androidx_test_espresso_core)

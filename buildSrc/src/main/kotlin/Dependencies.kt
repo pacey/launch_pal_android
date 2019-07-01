@@ -12,11 +12,14 @@ object Versions {
     const val androidx_test_runner = "1.2.0"
     const val androidx_test_junit = "1.1.1"
     const val androidx_test_espresso_core = "3.2.0"
+    const val androidx_recyclerview = "1.0.0"
     const val dagger = "2.23.2"
     const val retrofit = "2.6.0"
     const val okhttp = "4.0.0"
     const val stetho = "1.5.1"
     const val jackson = "2.9.9"
+    const val lifecycle = "2.0.0"
+    const val material = "1.1.0-alpha07"
 }
 
 object Dependencies {
@@ -27,11 +30,15 @@ object Dependencies {
     const val core_ktx = "androidx.core:core-ktx:${Versions.androidx}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
     const val junit = "junit:junit:${Versions.junit}"
+    const val androidx_core_testing = "androidx.arch.core:core-testing:${Versions.lifecycle}"
     const val androidx_test_runner = "androidx.test:runner:${Versions.androidx_test_runner}"
     const val androidx_test_junit = "androidx.test.ext:junit:${Versions.androidx_test_junit}"
     const val androidx_test_espresso_core =
         "androidx.test.espresso:espresso-core:${Versions.androidx_test_espresso_core}"
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val dagger_android = "com.google.dagger:dagger-android:${Versions.dagger}"
+    const val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+    const val dagger_support_compiler = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     const val dagger_compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofit_jackson = "com.squareup.retrofit2:converter-jackson:${Versions.retrofit}"
@@ -39,4 +46,8 @@ object Dependencies {
     const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
     const val stetho_okhttp = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
     const val jackson_module_kotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}"
+    const val androidx_lifecycle_extenstions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    const val androidx_lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
+    const val androidx_recyclerview = "androidx.recyclerview:recyclerview:${Versions.androidx_recyclerview}"
+    const val material_design = "com.google.android.material:material:${Versions.material}"
 }
