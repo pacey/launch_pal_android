@@ -8,6 +8,10 @@ plugins {
 android {
     sourceSets["main"].java.srcDir("src/main/kotlin")
     compileSdkVersion(Versions.compile_sdk)
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId = "com.github.pacey.launchpal"
         minSdkVersion(Versions.min_sdk)
@@ -43,13 +47,16 @@ dependencies {
     implementation(Dependencies.stetho)
     implementation(Dependencies.stetho_okhttp)
     implementation(Dependencies.jackson_module_kotlin)
+    implementation(Dependencies.jackson_datatype_jsr310)
     implementation(Dependencies.androidx_lifecycle_extenstions)
     implementation(Dependencies.androidx_recyclerview)
     implementation(Dependencies.material_design)
+    implementation(Dependencies.glide)
 
     kapt(Dependencies.dagger_compiler)
     kapt(Dependencies.dagger_support_compiler)
     kapt(Dependencies.androidx_lifecycle_compiler)
+    kapt(Dependencies.glide_compiler)
 
     testImplementation(Dependencies.junit)
 

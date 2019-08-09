@@ -1,6 +1,7 @@
 package com.github.pacey.launchpal.ui.launches
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -39,7 +40,12 @@ class LaunchesFragment : Fragment(), Injectable {
         launches_rv.adapter = listAdapter
         launchesViewModel.launches.observe(this, Observer<LaunchPage> { launchPage ->
             listAdapter.submitList(launchPage.launches)
+            swipe_refresh_layout.isRefreshing = false
             progress_circular.visibility = GONE
         })
+        swipe_refresh_layout.setOnRefreshListener {
+            Log.i(this.javaClass.canonicalName, "Refresh!")
+            launchesViewModel.launches.refresh()
+        }
     }
 }

@@ -2,7 +2,7 @@ object Versions {
     const val kotlin = "1.3.40"
     const val android_gradle_plugin = "3.4.1"
     const val compile_sdk = 28
-    const val min_sdk = 21
+    const val min_sdk = 26
     const val target_sdk = 28
     const val version_code = 1
     const val version_name = "1.0.0"
@@ -20,12 +20,13 @@ object Versions {
     const val jackson = "2.9.9"
     const val lifecycle = "2.0.0"
     const val material = "1.1.0-alpha07"
+    const val glide = "4.9.0"
 }
 
 object Dependencies {
     const val android_gradle_plugin = "com.android.tools.build:gradle:${Versions.android_gradle_plugin}"
     const val kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-    const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.androidx}"
     const val core_ktx = "androidx.core:core-ktx:${Versions.androidx}"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
@@ -46,8 +47,11 @@ object Dependencies {
     const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
     const val stetho_okhttp = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
     const val jackson_module_kotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}"
+    const val jackson_datatype_jsr310 = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${Versions.jackson}"
     const val androidx_lifecycle_extenstions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val androidx_lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val androidx_recyclerview = "androidx.recyclerview:recyclerview:${Versions.androidx_recyclerview}"
     const val material_design = "com.google.android.material:material:${Versions.material}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }
